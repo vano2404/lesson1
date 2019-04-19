@@ -19,4 +19,6 @@ costs = prompt("Во сколько обойдется?");
 appData.expenses[itemOfExpenditure] = costs;
 
 let dayBudget = appData.budget /30;
+
+console.log(appData);
 alert("бюджет на 1 день составляет "+ dayBudget + " рублей");
