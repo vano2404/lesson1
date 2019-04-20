@@ -21,6 +21,6 @@ console.log (arr);  //вывод массива в консоль
 
   let twoDigitOutput = str1.slice(0,2); // обрезание строки до двух символов
 
-  document.write(twoDigitOutput); // вывод на экран результат 
+  document.write(twoDigitOutput); // вывод на экран результат
  
 
