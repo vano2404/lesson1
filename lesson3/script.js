@@ -37,24 +37,25 @@ function chooseExpenses(){
 }
 chooseExpenses();
 
+
 function detectDayBudget () {
  appData.moneyPerDay = (appData.budget /30).toFixed();
-    alert("ежедневный бюджет: "+ appData.moneyPerDay);
+ alert("ежедневный бюджет: "+ appData.moneyPerDay);
 }
 detectDayBudget();
 
 function detectLevel (){
-    if(appData.moneyPerDay <100){
-      console.log("минимальный уровень достатка");
-    } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000){
-      console.log("средний уровень достатка");
-    } else if (appData.moneyPerDay > 2000){
-      console.log("высокий уровень достатка");
-    } else {
-      console.log("произошла ошибка");
-  } 
+if(appData.moneyPerDay <100){
+    console.log("минимальный уровень достатка");
+} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000){
+    console.log("средний уровень достатка");
+} else if (appData.moneyPerDay > 2000){
+    console.log("высокий уровень достатка");
+} else {
+    console.log("произошла ошибка");
+} 
 }
-detectLevel(); 
+detectLevel();
 
 function checkSavings(){
     if (appData.savings == true) {
@@ -66,21 +67,12 @@ function checkSavings(){
     }
 }
 checkSavings();
-let nonBindingExpenses;
+
 function chooseOptExpenses () {
     for (let i = 1; i < 4; i++) {
-<<<<<<< HEAD
-         nonBindingExpenses = prompt("Статья необязательных расходов?");
+        let nonBindingExpenses = prompt("Статья необязательных расходов?");
         appData.optionalExpenses[i] = nonBindingExpenses; 
-        while(!isNaN(nonBindingExpenses)|| nonBindingExpenses == "" || nonBindingExpenses == null){
-            nonBindingExpenses = prompt("Статья необязательных расходов?");
-        }
-=======
-     let nonBindingExpenses = prompt("Статья необязательных расходов?");
-     appData.optionalExpenses[i] = nonBindingExpenses;   
->>>>>>> 379af3312fe5c5847d9c9a29e588ceb5e301f646
-    }
-
+    };
 }
 chooseOptExpenses();
 
