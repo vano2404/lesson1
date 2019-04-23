@@ -70,9 +70,23 @@ checkSavings();
 
 function chooseOptExpenses () {
     for (let i = 1; i < 4; i++) {
+<<<<<<< HEAD
         let nonBindingExpenses = prompt("Статья необязательных расходов?");
         appData.optionalExpenses[i] = nonBindingExpenses; 
     };
+=======
+        
+         nonBindingExpenses = prompt("Статья необязательных расходов?");
+        appData.optionalExpenses[i] = nonBindingExpenses; 
+        while(!isNaN(nonBindingExpenses)|| nonBindingExpenses == "" || nonBindingExpenses == null){
+            nonBindingExpenses = prompt("Статья необязательных расходов?");
+        }
+     let nonBindingExpenses = prompt("Статья необязательных расходов?");
+     appData.optionalExpenses[i] = nonBindingExpenses;   
+
+    }
+
+>>>>>>> 2796d1fd38b751b40ff801a00f842b0dbec9ca4a
 }
 chooseOptExpenses();
 
