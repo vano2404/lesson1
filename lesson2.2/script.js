@@ -17,7 +17,7 @@ console.log (week);
 
 
 
-let arr = ['3325','2345','4756','7654','6721','3890','7492'];
+let arr = ['3225','2345','4756','7654','6721','3890','7492'];
  arr.forEach(function(elem){
     if(elem[0] == 3 || elem[0] == 7){
       console.log(elem);
