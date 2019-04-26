@@ -81,8 +81,8 @@ let appData = {
 };
 for (let key in appData) {
     console.log("Наша программа включает в себя данные:" + key);
-<<<<<<< HEAD
+
   }
-=======
+
   }
->>>>>>> e938f5c5691f6463d3a794da9c5955697a729285
+
