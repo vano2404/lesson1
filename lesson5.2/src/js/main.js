@@ -1,3 +1,6 @@
+
+
+
 let start = document.getElementById('start'),
 tableResult = document.querySelectorAll('.result-table div'), // панель доход
 itemExpenses = document.getElementsByClassName('expenses-item'), // инпуты с обязательными расходами
@@ -24,6 +27,9 @@ console.log(sum); // инпут сумма
 console.log(percent); // инпут проценты
 console.log(dataClass); // вывод массива с годом месяцем днем 
 console.log(dataInput); // вывод с инпутами
+
+
+
 
 
 
