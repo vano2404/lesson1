@@ -14,6 +14,7 @@ dataClass = document.querySelectorAll('.time-data div'), // год месяц д
 dataInput = document.querySelectorAll('.time-data div input'); // инпуты года даты дня
 affirm[1].disabled = true;
 affirm[0].disabled = true;
+affirm[2].disabled = true;
 console.log(tableResult); // вывод окна доход;
 console.log(itemExpenses); // вывод инпутов  с обязательными расходами
 console.log(affirm); // вывод массива кнопки 
@@ -33,6 +34,7 @@ startBtn.addEventListener('click', function() {
     if ('click' !== true){
         affirm[1].disabled = false;
         affirm[0].disabled = false;
+        affirm[2].disabled = false;
         time = prompt( "Введите дату в формате YYYY-MM-DD");
         money = +prompt("Ваш бюджет на месяц?");
     
