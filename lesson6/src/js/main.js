@@ -13,8 +13,12 @@ percentValue = document.querySelector('#percent'), // инпут процент
 dataClass = document.querySelectorAll('.time-data div'), // год месяц день
 dataInput = document.querySelectorAll('.time-data div input'); // инпуты года даты дня
 affirm[1].disabled = true;
+affirm[1].style.background = 'grey';
 affirm[0].disabled = true;
+affirm[0].style.background = 'grey';
 affirm[2].disabled = true;
+affirm[2].style.background = 'grey';
+
 console.log(tableResult); // вывод окна доход;
 console.log(itemExpenses); // вывод инпутов  с обязательными расходами
 console.log(affirm); // вывод массива кнопки 
@@ -33,8 +37,11 @@ let money,time;
 startBtn.addEventListener('click', function() {
     if ('click' !== true){
         affirm[1].disabled = false;
+        affirm[1].style.backgroundImage = 'linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff)';
         affirm[0].disabled = false;
+        affirm[0].style.backgroundImage = 'linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff)';
         affirm[2].disabled = false;
+        affirm[2].style.backgroundImage = 'linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff)';
         time = prompt( "Введите дату в формате YYYY-MM-DD");
         money = +prompt("Ваш бюджет на месяц?");
     
@@ -71,11 +78,13 @@ affirm[0].addEventListener('click', function(){
 })
 
 affirm[1].addEventListener('click', function(){
-    for (let i = 0; i < itemOptionalexpenses.length; i++) {
-        let nonBindingExpenses = itemOptionalexpenses[i].value;
-        appData.optionalExpenses[i] = nonBindingExpenses;
-        tableResult[9].textContent += appData.optionalExpenses[i] + ' ';
-    };
+    if (itemOptionalexpenses[0].value && itemOptionalexpenses[1].value && itemOptionalexpenses[2].value){
+        for (let i = 0; i < itemOptionalexpenses.length; i++) {
+            let nonBindingExpenses = itemOptionalexpenses[i].value;
+            appData.optionalExpenses[i] = nonBindingExpenses;
+            tableResult[9].textContent += appData.optionalExpenses[i] + ' ';
+        };
+    };    
     
 });
 affirm[2].addEventListener('click', function(){
