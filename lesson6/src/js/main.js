@@ -14,10 +14,13 @@ dataClass = document.querySelectorAll('.time-data div'), // год месяц д
 dataInput = document.querySelectorAll('.time-data div input'); // инпуты года даты дня
 affirm[1].disabled = true;
 affirm[1].style.background = 'grey';
+affirm[1].style.cursor = 'default';
 affirm[0].disabled = true;
 affirm[0].style.background = 'grey';
+affirm[0].style.cursor = 'default';
 affirm[2].disabled = true;
 affirm[2].style.background = 'grey';
+affirm[2].style.cursor = 'default';
 
 console.log(tableResult); // вывод окна доход;
 console.log(itemExpenses); // вывод инпутов  с обязательными расходами
@@ -38,10 +41,13 @@ startBtn.addEventListener('click', function() {
     if ('click' !== true){
         affirm[1].disabled = false;
         affirm[1].style.backgroundImage = 'linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff)';
+        affirm[1].style.cursor = 'pointer';
         affirm[0].disabled = false;
         affirm[0].style.backgroundImage = 'linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff)';
+        affirm[0].style.cursor = 'pointer';
         affirm[2].disabled = false;
         affirm[2].style.backgroundImage = 'linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff)';
+        affirm[2].style.cursor = 'pointer';
         time = prompt( "Введите дату в формате YYYY-MM-DD");
         money = +prompt("Ваш бюджет на месяц?");
     
