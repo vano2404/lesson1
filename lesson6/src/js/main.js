@@ -69,18 +69,19 @@ startBtn.addEventListener('click', function() {
 for (  let i = 0; i < itemExpenses.length; i++){
     let expensesSet = itemExpenses[i];
    expensesSet.setAttribute('disabled', "disabled");
-   expensesSet.addEventListener('keyup', function(){
-       if((itemExpenses[0].value.length > 1) && (itemExpenses[1].value.length > 1) && 
-        (itemExpenses[2].value.length > 1) && (itemExpenses[3].value.length > 1)){
-           affirm[0].removeAttribute('disabled');
-           affirm[0].style.backgroundImage = 'linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff)';
-           affirm[0].style.cursor = 'pointer';
+   expensesSet.addEventListener('input', function(){
+    Array.from (itemExpenses).some(function(item){
+        if(item.value.length !== 0){
+            affirm[0].removeAttribute('disabled');
+            affirm[0].style.backgroundImage = 'linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff)';
+            affirm[0].style.cursor = 'pointer';
         }else {
-           affirm[0].style.background = 'grey';
-           affirm[0].style.cursor = 'default';
-           affirm[0].setAttribute('disabled', "disabled");
+            affirm[0].style.background = 'grey';
+            affirm[0].style.cursor = 'default';
+            affirm[0].setAttribute('disabled', "disabled"); 
         }
-   });   
+    });
+});
 }
 affirm[0].addEventListener('click', function(){
     let sum = 0;
@@ -104,7 +105,8 @@ for ( j = 0; j < itemOptionalexpenses.length; j++){
     optionalExpenses = itemOptionalexpenses[j];
     optionalExpenses.setAttribute('disabled', "disabled");
     optionalExpenses.addEventListener('keyup', function(){
-        if((itemOptionalexpenses[0].value.length > 1) && (itemOptionalexpenses[1].value.length > 1) && (itemOptionalexpenses[2].value.length > 1)){
+        Array.from (itemOptionalexpenses).some(function(item){
+            if(item.value.length !== 0){
             affirm[1].removeAttribute('disabled');
             affirm[1].style.backgroundImage = 'linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff)';
             affirm[1].style.cursor = 'pointer';
@@ -114,15 +116,15 @@ for ( j = 0; j < itemOptionalexpenses.length; j++){
             affirm[1].setAttribute('disabled', "disabled");   
         }   
     });    
+});
 }
 affirm[1].addEventListener('click', function(){
-    if (itemOptionalexpenses[0].value && itemOptionalexpenses[1].value && itemOptionalexpenses[2].value){
-        for (let i = 0; i < itemOptionalexpenses.length; i++) {
-            let nonBindingExpenses = itemOptionalexpenses[i].value;
-            appData.optionalExpenses[i] = nonBindingExpenses;
-            tableResult[9].textContent += appData.optionalExpenses[i] + ' ';
-        }
-    }     
+    for (let i = 0; i < itemOptionalexpenses.length; i++) {
+        let nonBindingExpenses = itemOptionalexpenses[i].value;
+        appData.optionalExpenses[i] = nonBindingExpenses;
+        tableResult[9].textContent += appData.optionalExpenses[i] + ' ';
+    }
+        
 });
 affirm[2].addEventListener('click', function(){
     if(appData.budget != undefined){
