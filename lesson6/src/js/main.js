@@ -1,4 +1,3 @@
-
 'use strict'
 let startBtn = document.getElementById('start'),
 tableResult = document.querySelectorAll('.result-table div'), // панель доход
