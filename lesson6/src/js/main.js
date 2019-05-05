@@ -31,8 +31,9 @@ inputAll = document.getElementsByTagName('input'); // все инпуты
 // console.log(inputAll); // вывод всех инпутов 
 
 for (let i =0; i < inputAll.length; i++){
-        let inputOffBlock = inputAll[i];
-        inputOffBlock.setAttribute('disabled', "disabled");
+    let inputOffBlock = inputAll[i];
+    inputOffBlock.setAttribute('disabled', "disabled");
+    inputOffBlock.setAttribute('autocomplete',"off");
 }
 for (let i =0; i < affirm.length; i++){
     let blockButton = affirm[i];
@@ -68,20 +69,24 @@ startBtn.addEventListener('click', function() {
 });
 for (  let i = 0; i < itemExpenses.length; i++){
     let expensesSet = itemExpenses[i];
-   expensesSet.setAttribute('disabled', "disabled");
-   expensesSet.addEventListener('input', function(){
-    Array.from (itemExpenses).some(function(item){
-        if(item.value.length !== 0){
-            affirm[0].removeAttribute('disabled');
-            affirm[0].style.backgroundImage = 'linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff)';
-            affirm[0].style.cursor = 'pointer';
-        }else {
-            affirm[0].style.background = 'grey';
-            affirm[0].style.cursor = 'default';
-            affirm[0].setAttribute('disabled', "disabled"); 
-        }
+    expensesSet.setAttribute('disabled', "disabled");
+    expensesSet.addEventListener('input', function(){
+    itemExpenses[0].value = itemExpenses[0].value.replace(/[^а-я]/, '');
+    itemExpenses[2].value = itemExpenses[2].value.replace(/[^а-я]/, '');
+    itemExpenses[1].value = itemExpenses[1].value.replace(/[^0-9]/, '');
+    itemExpenses[3].value = itemExpenses[3].value.replace(/[^0-9]/, '');
+        Array.from (itemExpenses).some(function(item){
+            if(item.value.length !== 0){
+                affirm[0].removeAttribute('disabled');
+                affirm[0].style.backgroundImage = 'linear-gradient(336deg,#ffbd75,#ff964b),linear-gradient(#fff,#fff)';
+                affirm[0].style.cursor = 'pointer';
+            }else {
+                affirm[0].style.background = 'grey';
+                affirm[0].style.cursor = 'default';
+                affirm[0].setAttribute('disabled', "disabled"); 
+            }
+        });
     });
-});
 }
 affirm[0].addEventListener('click', function(){
     let sum = 0;
@@ -100,11 +105,12 @@ affirm[0].addEventListener('click', function(){
     }
     tableResult[7].textContent = sum;
 });
-let optionalExpenses, j;
-for ( j = 0; j < itemOptionalexpenses.length; j++){
-    optionalExpenses = itemOptionalexpenses[j];
+for ( let j = 0; j < itemOptionalexpenses.length; j++){
+    let optionalExpenses = itemOptionalexpenses[j];
     optionalExpenses.setAttribute('disabled', "disabled");
     optionalExpenses.addEventListener('keyup', function(){
+        optionalExpenses.value = optionalExpenses.value.replace(/[^а-я]/, '');
+        
         Array.from (itemOptionalexpenses).some(function(item){
             if(item.value.length !== 0){
             affirm[1].removeAttribute('disabled');
@@ -121,10 +127,10 @@ for ( j = 0; j < itemOptionalexpenses.length; j++){
 affirm[1].addEventListener('click', function(){
     for (let i = 0; i < itemOptionalexpenses.length; i++) {
         let nonBindingExpenses = itemOptionalexpenses[i].value;
+        itemOptionalexpenses[i].value = '';
         appData.optionalExpenses[i] = nonBindingExpenses;
         tableResult[9].textContent += appData.optionalExpenses[i] + ' ';
     }
-        
 });
 affirm[2].addEventListener('click', function(){
     if(appData.budget != undefined){
