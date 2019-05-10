@@ -91,19 +91,24 @@ window.addEventListener('DOMContentLoaded', function(){
         this.classList.add('more-splash');
         document.body.style.overflow = 'hidden';
     });
-    close.addEventListener('click', () => {
-        overlay.style.display = 'none';
-        more.classList.remove('more-splash');
-        document.body.style.overflow = '';
-        
-    });
     for (let i =0; i < descriptionBtn.length;i++){
         let button = descriptionBtn[i];
         button.addEventListener('click', () => {
-        overlay.style.display = 'block';
-        this.classList.add('more-splash');
-        document.body.style.overflow = 'hidden';
+            overlay.style.display = 'block';
+            this.classList.add('more-splash');
+            document.body.style.overflow = 'hidden';
 
         });
     }
+    close.addEventListener('click', () => {
+        overlay.style.display = 'none';
+        more.classList.remove('more-splash');
+        document.body.style.overflow = ''; 
+    });
+
+
+
+    
+
+
 });
