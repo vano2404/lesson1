@@ -125,42 +125,45 @@ window.addEventListener('DOMContentLoaded', function(){
             input[4].value = input[4].value.replace(/[^+0-9]/, '');
         });
     } 
-
-    for (let i =0; i< formAll.length;i++){
-        let formAlly = formAll[i];
-           
+    function sendForm (elem){
+        for (let i =0; i< formAll.length;i++){
+            let formAlly = formAll[i];  
              
-        formAlly.addEventListener('submit', function(event){
-            event.preventDefault();
-            formAlly.appendChild(statusMessage);
+            formAlly.addEventListener('submit', function(event){
+                event.preventDefault();
+                formAlly.appendChild(statusMessage);
+                let formData = new FormData(elem);
+                function postData(data){
+                    return new Promise(function(resolve,reject){
+                        let request = new XMLHttpRequest();
 
-            let request = new XMLHttpRequest();
-            request.open('POST','server.php');
-            // request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-            
-            let formData = new FormData(formAlly);
-            let obj = {};
-            formData.forEach(function(value,key){
-                obj[key] = value;
-            });
-            let json = JSON.stringify(obj);
-            request.send(json);
+                        request.open('POST','server.php');
 
-            request.addEventListener('readystatechange', function(){
-                if(request.readyState < 4) {
-                    statusMessage.innerHTML = mesagge.loadind;
-                }else if (request.readyState === 4 && request.status === 200){
-                    statusMessage.innerHTML = mesagge.success;
+                        request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+                        request.onreadystatechange = function(){
+                            if(request.readyState < 4) {
+                                resolve()
+                            }else if (request.readyState === 4 && request.status === 200){
+                                resolve()
 
-                }else {
-                    statusMessage.innerHTML = mesagge.failure;
+                            }else {
+                                reject()
+                            }
+                        }
+                        request.send(data);
+                    });    
                 }
+                function clearInput(){
+                    for (let i =2; i < input.length;i++){
+                    input[i].value = '';
+                    }
+                }
+                postData(formData).then(() => statusMessage.innerHTML = mesagge.loadind).then(() => statusMessage.innerHTML = mesagge.success)
+                .catch(() => statusMessage.innerHTML = mesagge.failure) 
+                            .then(clearInput)      
             });
-
-            for (let i =2; i < input.length;i++){
-            input[i].value = '';
-            }    
-        });
+        }
     }
+    sendForm(formAll[0]);
+    sendForm(formAll[1]);
 });
