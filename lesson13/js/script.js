@@ -237,24 +237,24 @@ window.addEventListener('DOMContentLoaded', function(){
         persons.addEventListener('input', function(){
             persons.value = persons.value.replace(/[^0-9]/, '');
             personsSum = +this.value;
-            total = ((daysSum + personsSum)*4000)*place.options[place.selectedIndex].value;;
+            total = ((daysSum + personsSum)*4000)
 
             if (restDays.value == '' || persons.value == ''){
                 totalValue.innerHTML = 0;
             } else {
-                totalValue.innerHTML = total;
+                totalValue.innerHTML = total*place.options[place.selectedIndex].value;
             }
         });
 
         restDays.addEventListener('input', function(){
             restDays.value = restDays.value.replace(/[^0-9]/, '');
             daysSum = +this.value;
-            total = ((daysSum + personsSum)*4000)*place.options[place.selectedIndex].value;
+            total = ((daysSum + personsSum)*4000)
 
             if (persons.value == '' || restDays.value == ''){
                 totalValue.innerHTML = 0;
             } else {
-                totalValue.innerHTML = total;
+                totalValue.innerHTML = total*place.options[place.selectedIndex].value;
             }
         });
 
