@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', function(){
     calc = require('./parts/calc.js');
     
     tabs();
-    imer();
+    timer();
     modalWindow();
     forms();
     slider();

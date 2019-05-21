@@ -239,7 +239,7 @@ window.addEventListener('DOMContentLoaded', function(){
             personsSum = +this.value;
             total = ((daysSum + personsSum)*4000)
 
-            if (restDays.value == '' || persons.value == ''){
+            if (persons.value == '' || restDays.value == '' || persons.value == 0 || restDays.value == 0 ){
                 totalValue.innerHTML = 0;
             } else {
                 totalValue.innerHTML = total*place.options[place.selectedIndex].value;

@@ -1,7 +1,6 @@
 {
-  "name": "lesson15",
+  "name": "les1",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,7 +8,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^4.31.0",
+    "webpack": "^4.32.0",
     "webpack-cli": "^3.3.2"
-  }
+  },
+  "dependencies": {},
+  "description": ""
 }

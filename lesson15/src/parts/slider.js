@@ -21,19 +21,23 @@ function slider() {
         slides[slideIndex -1].style.display = 'block';
         dots[slideIndex -1].classList.add('dot-active');
     }
+
     function plusSlides(n){
         showSlides(slideIndex += n);
     }
     function curentSlide(n){
         showSlides(slideIndex = n)
     }
+    
     prew.addEventListener('click', function(){
         plusSlides(-1);
 
     });
+
     next.addEventListener('click', function(){
         plusSlides(1);
     });
+
     dotsWrap.addEventListener('click', function(event){
         for(let i = 0; i < dots.length +1; i++) {
             if (event.target.classList.contains('dot') && event.target == dots[i-1]){
