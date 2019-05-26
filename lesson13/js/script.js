@@ -9,7 +9,6 @@ window.addEventListener('DOMContentLoaded', function(){
             tabcontentInfoFade[i].classList.remove('show');
             tabcontentInfoFade[i].classList.add('hide');
         }
-
     }
     hideTabContent(1);
 
